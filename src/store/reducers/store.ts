@@ -1,12 +1,10 @@
-import { ThunkDispatch, UnknownAction, combineReducers, configureStore } from '@reduxjs/toolkit'
+import { ThunkDispatch, UnknownAction, configureStore } from '@reduxjs/toolkit'
 import { persistStore, persistReducer, FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER } from 'redux-persist'
 import storage from 'redux-persist/lib/storage' // defaults to localStorage
-import data from './data'
+import reducer from './reducer';
 import { TypedUseSelectorHook, useDispatch, useSelector } from 'react-redux'
 
-const rootReducer = combineReducers({
-    data
-})
+const rootReducer = reducer;
 
 const persistedReducer = persistReducer(
     {

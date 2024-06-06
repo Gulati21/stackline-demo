@@ -1,3 +1,4 @@
 import { createAction } from '@reduxjs/toolkit'
+import { AmazonProduct } from '../../types/AmazonProduct'
 
-export const setContents = createAction<string[]>('data/setContents')
+export const setContents = createAction<AmazonProduct[]>('data/setContents')

@@ -1,17 +1,22 @@
 import { createReducer } from '@reduxjs/toolkit'
 import { setContents } from '../actions/data'
+import { AmazonProduct } from '../../types/AmazonProduct'
 
 interface DataReducer {
-    contents: string[]
+    data: AmazonProduct[],
+    isLoading: false,
+    isError: false
 }
 
 const initialState: DataReducer = {
-    contents: []
-}
+    data: [],
+    isLoading: false,
+    isError: false
+};
 
 const dataReducer = createReducer<DataReducer>(initialState, (builder) => {
     builder.addCase(setContents, (state, action) => {
-        state.contents = action.payload
+        state.data = action.payload
     })
 })
 
